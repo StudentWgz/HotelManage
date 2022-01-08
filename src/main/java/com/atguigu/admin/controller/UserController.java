@@ -48,8 +48,7 @@ public class UserController {
                 && RepeatPassword != null && !RepeatPassword.equals("") && FirstName != null && !FirstName.equals("")
                 && LastName != null && !LastName.equals("")) {
             String user_name = FirstName + LastName;
-            User user_name1 = userService.getUserByName(user_name);
-            if (user_name.equals(user_name1.getUser_name())) {
+            if (userService.getUserByName(user_name)!=null) {
                 model.addAttribute("msg", "该账户已存在");
                 return "register";
             }
