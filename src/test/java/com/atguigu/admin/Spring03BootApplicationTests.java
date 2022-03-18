@@ -26,7 +26,7 @@ class Spring03BootApplicationTests {
     UserService userService;
     @Test
     void contextLoads() {
-        Long aLong = jdbcTemplate.queryForObject("select count(*) from t_customer", Long.class);
+        Long aLong = jdbcTemplate.queryForObject("select count(*) from tb_customer", Long.class);
         log.info("记录总数：{}",aLong);
         log.info("数据源类型{}",dataSource.getClass());
     }

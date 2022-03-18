@@ -8,5 +8,5 @@
     </select>
     <insert id="inSertUser" parameterType="com.atguigu.admin.po.User">
         INSERT INTO tb_user (user_name, user_password,user_email) VALUES (#{user_name}, #{user_password},#{user_email})
-
+    </insert>
 </mapper>

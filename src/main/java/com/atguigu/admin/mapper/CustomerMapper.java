@@ -4,7 +4,10 @@ import com.atguigu.admin.po.Customer;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
+
+import java.util.List;
 
 @Mapper
 public interface CustomerMapper extends BaseMapper<Customer> {
@@ -12,4 +15,6 @@ public interface CustomerMapper extends BaseMapper<Customer> {
     public int updateCustomerById(Customer customer);
     @Insert("insert tb_customer(customer_name,customer_password,customer_room) values(#{customer_name},#{customer_password},#{customer_room})")
     public int insertCustomer(Customer customer);
+    @Select("select * from tb_customer")
+    List<Customer> list();
 }

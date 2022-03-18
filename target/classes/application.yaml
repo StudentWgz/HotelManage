@@ -29,6 +29,12 @@ spring:
           enabled: true
           config:
             drop-table-allow: false
+  cache:
+    type: redis
+  redis:
+    host: localhost
+    port: 6379
+
 mybatis:
   mapper-locations: classpath:mybatis/mapper/*.xml
   configuration:
@@ -39,3 +45,5 @@ server:
 mybatis-plus:
   configuration:
     map-underscore-to-camel-case: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    local-cache-scope: session
