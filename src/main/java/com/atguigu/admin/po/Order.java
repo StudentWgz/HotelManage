@@ -3,9 +3,11 @@ package com.atguigu.admin.po;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import java.io.Serializable;
+
 @Data
 @TableName("tb_order")
-public class Order {
+public class Order implements Serializable {
     private int order_id;
     private String order_user;
     private String order_type;

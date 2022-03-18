@@ -67,7 +67,7 @@ public class IndexController {
     public String getTables(HttpSession session, Model model) {
         Object loginUser = session.getAttribute("LoginUser");
         if (loginUser != null) {
-            List<Customer> customers =customerService.list();
+            List<Customer> customers =customerService.getAllCustomer();
             model.addAttribute("customers",customers);
             log.info("内容数为{}", customers);
             return "tables";

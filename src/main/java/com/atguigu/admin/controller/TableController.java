@@ -10,6 +10,7 @@ import com.atguigu.admin.service2.RoomService;
 import com.atguigu.admin.service2.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -46,23 +47,25 @@ public class TableController {
         return "tables";
     }
 
+
     @GetMapping("/user_tables.html")
     public String user_table(Model model) {
-        List<User> user_list = userService.list();
+        List<User> user_list = userService.getAllUsers();
         model.addAttribute("users",user_list);
+        System.out.println("用户数据被查询到了");
         return "user_tables";
     }
 
     @GetMapping("/room_tables.html")
     public String room_table(Model model) {
-        List<Room> rooms = roomService.list();
+        List<Room> rooms = roomService.getAllRooms();
         model.addAttribute("rooms",rooms);
         return "room_tables";
     }
 
     @GetMapping("/order_tables.html")
     public String order_room(Model model) {
-        List<Order> orders = orderService.list();
+        List<Order> orders = orderService.getAllOrders();
         model.addAttribute("orders",orders);
         return "order_tables";
     }

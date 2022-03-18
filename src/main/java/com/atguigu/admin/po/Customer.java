@@ -5,11 +5,12 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.lang.reflect.Type;
 
 @TableName("tb_customer")
 @Data
-public class Customer {
+public class Customer implements Serializable {
     @TableId(type= IdType.AUTO)
     private Integer customer_id;
     private String customer_name;
